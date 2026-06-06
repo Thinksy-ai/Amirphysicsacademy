@@ -1,44 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Amir Physics Academy | ₹100 Physics Doubt Solving Session</title>
 
-<meta name="description" content="Get your Physics doubts solved live by Amir Sir. 1 Hour Online Session for JEE, NEET, Boards & Foundation Students. Only ₹100.">
+<title>Amir Physics Academy | Physics Doubt Solving Session ₹100</title>
+
+<meta name="description"
+content="Get Physics doubts solved live by Amir Sir. One hour online session for JEE, NEET, Boards and Foundation students.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 
 <style>
-:root{
---bg:#ffffff;
---card:#ffffff;
---text:#111111;
---accent:#000000;
---border:#e5e5e5;
-}
 
-.dark{
+:root{
 --bg:#050505;
---card:rgba(255,255,255,.06);
+--card:rgba(255,255,255,.05);
 --text:#ffffff;
+--border:rgba(255,255,255,.08);
 --accent:#ffffff;
---border:rgba(255,255,255,.1);
 }
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Inter,Segoe UI,sans-serif;
+font-family:'Poppins',sans-serif;
 scroll-behavior:smooth;
 }
 
 body{
 background:var(--bg);
 color:var(--text);
-transition:.3s;
 overflow-x:hidden;
+}
+
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at 10% 20%,rgba(255,255,255,.06),transparent 25%),
+radial-gradient(circle at 90% 80%,rgba(255,255,255,.04),transparent 30%);
+pointer-events:none;
+z-index:-1;
+}
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#050505;
+}
+
+::-webkit-scrollbar-thumb{
+background:#444;
+border-radius:10px;
 }
 
 #loader{
@@ -48,28 +72,58 @@ background:#000;
 display:flex;
 justify-content:center;
 align-items:center;
-z-index:9999;
-color:#fff;
 font-size:2rem;
 font-weight:700;
-letter-spacing:2px;
+letter-spacing:3px;
+z-index:9999;
+}
+
+.sidebar{
+position:fixed;
+left:20px;
+top:50%;
+transform:translateY(-50%);
+display:flex;
+flex-direction:column;
+gap:15px;
+z-index:1000;
+}
+
+.sidebar a{
+width:55px;
+height:55px;
+display:flex;
+justify-content:center;
+align-items:center;
+border-radius:16px;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(20px);
+color:white;
+text-decoration:none;
+transition:.3s;
+}
+
+.sidebar a:hover{
+transform:translateX(5px);
+background:white;
+color:black;
 }
 
 .navbar{
 position:fixed;
 top:0;
+left:0;
 width:100%;
-backdrop-filter:blur(15px);
-background:rgba(0,0,0,.7);
-padding:18px 8%;
+padding:20px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-z-index:1000;
+background:rgba(0,0,0,.65);
+backdrop-filter:blur(15px);
+z-index:999;
 }
 
 .logo{
-color:#fff;
 font-size:1.3rem;
 font-weight:700;
 }
@@ -80,152 +134,1120 @@ gap:25px;
 }
 
 .nav-links a{
-color:#fff;
+color:white;
 text-decoration:none;
 font-size:.95rem;
+position:relative;
 }
 
-.toggle{
-background:#fff;
-border:none;
-padding:10px;
-border-radius:50%;
-cursor:pointer;
+.nav-links a::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-5px;
+width:0;
+height:2px;
+background:white;
+transition:.3s;
+}
+
+.nav-links a:hover::after{
+width:100%;
 }
 
 .hero{
 min-height:100vh;
 display:flex;
-align-items:center;
 justify-content:center;
-text-align:center;
-padding:100px 20px;
+align-items:center;
+padding:120px 8% 80px;
 position:relative;
 overflow:hidden;
+text-align:center;
+}
+
+.hero-content{
+max-width:900px;
+z-index:2;
 }
 
 .hero h1{
-font-size:4rem;
-margin-bottom:15px;
+font-size:4.5rem;
+font-weight:800;
+line-height:1.1;
+margin-bottom:20px;
 }
 
 .hero p{
-font-size:1.2rem;
-max-width:700px;
+font-size:1.1rem;
+opacity:.85;
+line-height:1.8;
+max-width:750px;
 margin:auto;
-opacity:.8;
 }
 
 .price{
-font-size:3rem;
+font-size:4rem;
 font-weight:800;
 margin:30px 0;
 }
 
+.buttons{
+margin-top:30px;
+}
+
 .btn{
-display:inline-block;
+display:inline-flex;
+align-items:center;
+gap:10px;
 padding:15px 28px;
-background:var(--accent);
-color:var(--bg);
-text-decoration:none;
 border-radius:50px;
-margin:10px;
+text-decoration:none;
 font-weight:600;
+margin:10px;
+transition:.3s;
 }
 
-.dark .btn{
-background:#fff;
-color:#000;
+.btn-primary{
+background:white;
+color:black;
 }
 
-section{
-padding:100px 8%;
+.btn-secondary{
+border:1px solid rgba(255,255,255,.2);
+color:white;
+}
+
+.btn:hover{
+transform:translateY(-3px);
+}
+
+.glow{
+position:absolute;
+width:600px;
+height:600px;
+border-radius:50%;
+background:rgba(255,255,255,.04);
+filter:blur(120px);
+}
+
+.glow1{
+top:-200px;
+left:-100px;
+}
+
+.glow2{
+right:-200px;
+bottom:-200px;
+}
+
+.eq{
+position:absolute;
+opacity:.06;
+font-size:2rem;
+animation:float 18s linear infinite;
+pointer-events:none;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(120vh);
+}
+
+100%{
+transform:translateY(-150vh);
+}
+
+}
+
+.trust{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+padding:0 8% 80px;
+}
+
+.trust-card{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:20px;
+padding:30px;
+text-align:center;
+backdrop-filter:blur(20px);
+}
+
+.trust-card i{
+font-size:2rem;
+margin-bottom:15px;
+}
+
+.trust-card h3{
+font-size:1.8rem;
+margin-bottom:10px;
+}
+
+.section{
+padding:80px 8%;
 }
 
 .section-title{
-font-size:2.5rem;
 text-align:center;
-margin-bottom:50px;
+font-size:2.8rem;
+margin-bottom:20px;
 }
 
-.cards{
+.section-sub{
+text-align:center;
+opacity:.75;
+max-width:700px;
+margin:auto auto 50px;
+}
+
+@media(max-width:768px){
+
+.sidebar{
+display:none;
+}
+
+.nav-links{
+display:none;
+}
+
+.hero h1{
+font-size:2.8rem;
+}
+
+.price{
+font-size:3rem;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="loader">
+AmirPhysicsAcademy
+</div>
+
+<div class="sidebar">
+
+<a href="#home">
+<i class="fas fa-house"></i>
+</a>
+
+<a href="#about">
+<i class="fas fa-atom"></i>
+</a>
+
+<a href="#pricing">
+<i class="fas fa-indian-rupee-sign"></i>
+</a>
+
+<a href="#faq">
+<i class="fas fa-circle-question"></i>
+</a>
+
+<a href="#contact">
+<i class="fas fa-phone"></i>
+</a>
+
+</div>
+
+<div class="glow glow1"></div>
+<div class="glow glow2"></div>
+
+<div class="eq" style="left:8%">E = mc²</div>
+<div class="eq" style="left:25%;animation-delay:3s">F = ma</div>
+<div class="eq" style="left:45%;animation-delay:5s">PV = nRT</div>
+<div class="eq" style="left:65%;animation-delay:7s">V = IR</div>
+<div class="eq" style="left:85%;animation-delay:10s">W = Fd</div>
+
+<nav class="navbar">
+
+<div class="logo">
+AmirPhysicsAcademy
+</div>
+
+<div class="nav-links">
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#pricing">Pricing</a>
+<a href="#faq">FAQ</a>
+<a href="#contact">Contact</a>
+</div>
+
+</nav>
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<h1 id="typing">
+Master Physics.
+</h1>
+
+<p>
+
+One-hour live Physics doubt-solving sessions designed
+for JEE, NEET, Boards and Foundation students.
+Get direct guidance from Amir Sir and clear concepts
+faster with focused one-to-one explanations.
+
+</p>
+
+<div class="price">
+₹100
+</div>
+
+<div class="buttons">
+
+<a href="[GOOGLE_FORM_LINK]"
+class="btn btn-primary"
+target="_blank">
+
+<i class="fas fa-calendar-check"></i>
+Book Session
+
+</a>
+
+<a href="https://wa.me/[WHATSAPP_NUMBER]"
+class="btn btn-secondary"
+target="_blank">
+
+<i class="fab fa-whatsapp"></i>
+WhatsApp
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="trust">
+
+<div class="trust-card">
+
+<i class="fas fa-clock"></i>
+
+<h3>1 Hour</h3>
+
+<p>
+Focused live doubt solving session.
+</p>
+
+</div>
+
+<div class="trust-card">
+
+<i class="fas fa-laptop"></i>
+
+<h3>Online</h3>
+
+<p>
+Join from anywhere in India.
+</p>
+
+</div>
+
+<div class="trust-card">
+
+<i class="fas fa-indian-rupee-sign"></i>
+
+<h3>₹100</h3>
+
+<p>
+Affordable learning support.
+</p>
+
+</div>
+
+<div class="trust-card">
+
+<i class="fas fa-bolt"></i>
+
+<h3>Instant</h3>
+
+<p>
+Fast doubt clarification.
+</p>
+
+</div>
+
+</section>
+<!-- =========================
+PART 2
+ABOUT + FEATURES + PROCESS
++ STATS + PRICING
+========================= -->
+
+<section class="section" id="about">
+
+<h2 class="section-title">
+About Amir Sir
+</h2>
+
+<p class="section-sub">
+Focused Physics mentoring for students preparing
+for competitive examinations and board studies.
+Learn concepts, solve numericals and remove confusion
+through interactive live sessions.
+</p>
+
+<div class="features-grid">
+
+<div class="feature-card">
+<i class="fas fa-atom"></i>
+<h3>Concept Clarity</h3>
+<p>
+Understand Physics from fundamentals instead of
+memorizing formulas.
+</p>
+</div>
+
+<div class="feature-card">
+<i class="fas fa-bolt"></i>
+<h3>Numerical Solving</h3>
+<p>
+Learn efficient approaches for solving Physics problems.
+</p>
+</div>
+
+<div class="feature-card">
+<i class="fas fa-brain"></i>
+<h3>Exam Strategy</h3>
+<p>
+Improve speed, accuracy and confidence for exams.
+</p>
+</div>
+
+<div class="feature-card">
+<i class="fas fa-comments"></i>
+<h3>Doubt Discussion</h3>
+<p>
+Ask questions freely during the entire session.
+</p>
+</div>
+
+<div class="feature-card">
+<i class="fas fa-graduation-cap"></i>
+<h3>JEE & NEET</h3>
+<p>
+Suitable for competitive exam aspirants.
+</p>
+</div>
+
+<div class="feature-card">
+<i class="fas fa-book-open"></i>
+<h3>Board Preparation</h3>
+<p>
+Strengthen school concepts and exam readiness.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title">
+Why Students Choose Amir Sir
+</h2>
+
+<p class="section-sub">
+Simple, affordable and focused learning.
+No unnecessary lectures. Direct doubt solving.
+</p>
+
+<div class="benefits">
+
+<div class="benefit">
+<span>01</span>
+<h3>Personal Attention</h3>
+<p>
+Every doubt receives detailed explanation.
+</p>
+</div>
+
+<div class="benefit">
+<span>02</span>
+<h3>Affordable Learning</h3>
+<p>
+Only ₹100 for a complete one-hour session.
+</p>
+</div>
+
+<div class="benefit">
+<span>03</span>
+<h3>Focused Discussion</h3>
+<p>
+No wasting time. Straight to concepts and solutions.
+</p>
+</div>
+
+<div class="benefit">
+<span>04</span>
+<h3>Learn Anywhere</h3>
+<p>
+Join from mobile, tablet or laptop.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title">
+How Booking Works
+</h2>
+
+<p class="section-sub">
+Four simple steps to start learning.
+</p>
+
+<div class="steps">
+
+<div class="step-card">
+<div class="step-number">1</div>
+<h3>Fill Form</h3>
+<p>
+Submit your booking request.
+</p>
+</div>
+
+<div class="step-card">
+<div class="step-number">2</div>
+<h3>Payment</h3>
+<p>
+Complete payment confirmation.
+</p>
+</div>
+
+<div class="step-card">
+<div class="step-number">3</div>
+<h3>Receive Details</h3>
+<p>
+Session information will be shared.
+</p>
+</div>
+
+<div class="step-card">
+<div class="step-number">4</div>
+<h3>Attend Session</h3>
+<p>
+Get your doubts solved live.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title">
+Session Statistics
+</h2>
+
+<p class="section-sub">
+Numbers can be updated later with real data.
+</p>
+
+<div class="stats-grid">
+
+<div class="stat-card">
+
+<h3 class="counter" data-target="500">
+0
+</h3>
+
+<p>
+Students Guided
+</p>
+
+</div>
+
+<div class="stat-card">
+
+<h3 class="counter" data-target="100">
+0
+</h3>
+
+<p>
+Sessions Conducted
+</p>
+
+</div>
+
+<div class="stat-card">
+
+<h3 class="counter" data-target="95">
+0
+</h3>
+
+<p>
+Satisfaction Rate
+</p>
+
+</div>
+
+<div class="stat-card">
+
+<h3 class="counter" data-target="1000">
+0
+</h3>
+
+<p>
+Physics Problems Discussed
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section" id="pricing">
+
+<h2 class="section-title">
+Simple Pricing
+</h2>
+
+<p class="section-sub">
+One affordable plan for every student.
+</p>
+
+<div class="pricing-wrapper">
+
+<div class="pricing-card">
+
+<div class="pricing-top">
+
+<h3>
+Physics Doubt Solving
+</h3>
+
+<div class="pricing-price">
+
+₹100
+
+<span>
+/ Session
+</span>
+
+</div>
+
+</div>
+
+<ul>
+
+<li>
+<i class="fas fa-check"></i>
+1 Hour Live Session
+</li>
+
+<li>
+<i class="fas fa-check"></i>
+Physics Doubt Solving
+</li>
+
+<li>
+<i class="fas fa-check"></i>
+JEE / NEET / Boards
+</li>
+
+<li>
+<i class="fas fa-check"></i>
+Concept Explanations
+</li>
+
+<li>
+<i class="fas fa-check"></i>
+Problem Solving Guidance
+</li>
+
+<li>
+<i class="fas fa-check"></i>
+Interactive Discussion
+</li>
+
+</ul>
+
+<a href="[GOOGLE_FORM_LINK]"
+target="_blank"
+class="btn btn-primary">
+
+<i class="fas fa-calendar-check"></i>
+
+Book Session
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<style>
+
+.features-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.feature-card{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+padding:30px;
+border-radius:24px;
+backdrop-filter:blur(20px);
+transition:.35s;
+}
+
+.feature-card:hover{
+transform:translateY(-8px);
+}
+
+.feature-card i{
+font-size:2rem;
+margin-bottom:15px;
+}
+
+.feature-card h3{
+margin-bottom:10px;
+}
+
+.benefits{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+}
+
+.benefit{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+padding:30px;
+border-radius:24px;
+}
+
+.benefit span{
+font-size:2rem;
+font-weight:800;
+opacity:.25;
+}
+
+.benefit h3{
+margin:15px 0;
+}
+
+.steps{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:25px;
 }
 
-.card{
-background:var(--card);
-border:1px solid var(--border);
+.step-card{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
 padding:30px;
-border-radius:20px;
-backdrop-filter:blur(20px);
-transition:.3s;
+border-radius:24px;
+text-align:center;
 }
 
-.card:hover{
-transform:translateY(-10px);
+.step-number{
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+margin:auto auto 20px;
+font-weight:700;
+font-size:1.3rem;
+background:white;
+color:black;
 }
 
-.card i{
-font-size:2rem;
-margin-bottom:15px;
-}
-
-.counter-grid{
+.stats-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
+gap:25px;
 }
 
-.counter{
+.stat-card{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+padding:35px;
+border-radius:24px;
 text-align:center;
-padding:40px;
-border-radius:20px;
-border:1px solid var(--border);
 }
 
-.counter h2{
+.stat-card h3{
 font-size:3rem;
+margin-bottom:10px;
 }
 
-.pricing{
+.pricing-wrapper{
+display:flex;
+justify-content:center;
+}
+
+.pricing-card{
 max-width:500px;
-margin:auto;
-text-align:center;
+width:100%;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
 padding:40px;
-border-radius:25px;
-border:1px solid var(--border);
+border-radius:30px;
+text-align:center;
 }
 
-.pricing h2{
-font-size:2rem;
-}
-
-.pricing .amount{
+.pricing-price{
 font-size:4rem;
 font-weight:800;
 margin:20px 0;
 }
 
-.pricing ul{
-list-style:none;
-margin:20px 0;
+.pricing-price span{
+font-size:1rem;
+opacity:.7;
 }
 
-.pricing li{
-padding:10px;
+.pricing-card ul{
+list-style:none;
+text-align:left;
+margin:30px 0;
+}
+
+.pricing-card li{
+padding:12px 0;
+}
+
+.pricing-card li i{
+margin-right:10px;
+}
+
+@media(max-width:768px){
+
+.pricing-price{
+font-size:3rem;
+}
+
+}
+
+</style>
+<!-- =========================
+PART 3
+TESTIMONIALS + FAQ + CONTACT
+FOOTER + JAVASCRIPT
+========================= -->
+
+<section class="section">
+
+<h2 class="section-title">
+Student Feedback
+</h2>
+
+<p class="section-sub">
+What students say about the sessions.
+</p>
+
+<div class="testimonial-grid">
+
+<div class="testimonial-card">
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+"Rotational Mechanics finally made sense.
+The explanation was simple and easy to follow."
+</p>
+
+<h4>
+Arjun Sharma
+</h4>
+
+<span>
+JEE Aspirant
+</span>
+
+</div>
+
+<div class="testimonial-card">
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+"Very affordable and extremely useful.
+All my doubts were solved in one session."
+</p>
+
+<h4>
+Priya Verma
+</h4>
+
+<span>
+NEET Aspirant
+</span>
+
+</div>
+
+<div class="testimonial-card">
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+"The numerical solving techniques helped me
+save a lot of time during tests."
+</p>
+
+<h4>
+Rohan Gupta
+</h4>
+
+<span>
+Class 12 Student
+</span>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section" id="faq">
+
+<h2 class="section-title">
+Frequently Asked Questions
+</h2>
+
+<div class="faq-container">
+
+<div class="faq-item">
+
+<div class="faq-question">
+How much does a session cost?
+</div>
+
+<div class="faq-answer">
+₹100 per session.
+</div>
+
+</div>
+
+<div class="faq-item">
+
+<div class="faq-question">
+How long is the session?
+</div>
+
+<div class="faq-answer">
+One hour.
+</div>
+
+</div>
+
+<div class="faq-item">
+
+<div class="faq-question">
+How will I receive joining details?
+</div>
+
+<div class="faq-answer">
+After payment confirmation.
+</div>
+
+</div>
+
+<div class="faq-item">
+
+<div class="faq-question">
+Can I ask multiple doubts?
+</div>
+
+<div class="faq-answer">
+Yes, you may discuss multiple doubts during the session.
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section" id="contact">
+
+<h2 class="section-title">
+Contact
+</h2>
+
+<p class="section-sub">
+Need help before booking?
+Contact Amir Physics Academy.
+</p>
+
+<div class="contact-box">
+
+<div class="contact-item">
+
+<i class="fas fa-phone"></i>
+
+<h3>
+Phone
+</h3>
+
+<p>
+[PHONE_NUMBER]
+</p>
+
+</div>
+
+<div class="contact-item">
+
+<i class="fab fa-whatsapp"></i>
+
+<h3>
+WhatsApp
+</h3>
+
+<p>
+[WHATSAPP_NUMBER]
+</p>
+
+</div>
+
+<div class="contact-item">
+
+<i class="fas fa-envelope"></i>
+
+<h3>
+Email
+</h3>
+
+<p>
+[EMAIL]
+</p>
+
+</div>
+
+</div>
+
+<div style="text-align:center;margin-top:40px;">
+
+<a href="[GOOGLE_FORM_LINK]"
+target="_blank"
+class="btn btn-primary">
+
+<i class="fas fa-calendar-check"></i>
+
+Book Consultation
+
+</a>
+
+</div>
+
+</section>
+
+<footer>
+
+<h3>
+AmirPhysicsAcademy
+</h3>
+
+<p>
+Master Physics. Clear Doubts. Score Higher.
+</p>
+
+<br>
+
+<p>
+© 2026 AmirPhysicsAcademy
+</p>
+
+</footer>
+
+<a
+class="floating-whatsapp"
+href="https://wa.me/[WHATSAPP_NUMBER]"
+target="_blank">
+
+<i class="fab fa-whatsapp"></i>
+
+</a>
+
+<button
+class="top-btn"
+onclick="window.scrollTo({top:0,behavior:'smooth'})">
+
+<i class="fas fa-arrow-up"></i>
+
+</button>
+
+<style>
+
+.testimonial-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.testimonial-card{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+padding:30px;
+border-radius:24px;
+}
+
+.stars{
+font-size:1.2rem;
+margin-bottom:15px;
+}
+
+.testimonial-card p{
+margin-bottom:20px;
+opacity:.85;
+}
+
+.testimonial-card h4{
+margin-bottom:5px;
+}
+
+.testimonial-card span{
+opacity:.6;
+font-size:.9rem;
+}
+
+.faq-container{
+max-width:900px;
+margin:auto;
 }
 
 .faq-item{
-border:1px solid var(--border);
 margin-bottom:15px;
-border-radius:12px;
+border-radius:20px;
 overflow:hidden;
+border:1px solid rgba(255,255,255,.08);
+background:rgba(255,255,255,.05);
 }
 
 .faq-question{
-padding:20px;
+padding:22px;
 cursor:pointer;
 font-weight:600;
 }
@@ -233,360 +1255,153 @@ font-weight:600;
 .faq-answer{
 max-height:0;
 overflow:hidden;
-padding:0 20px;
+padding:0 22px;
 transition:.4s;
+opacity:.8;
 }
 
-.testimonial{
-padding:30px;
-border-radius:20px;
-border:1px solid var(--border);
-margin-bottom:20px;
+.contact-box{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
 }
 
-.contact{
+.contact-item{
 text-align:center;
+padding:30px;
+border-radius:24px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+}
+
+.contact-item i{
+font-size:2rem;
+margin-bottom:15px;
 }
 
 footer{
-padding:40px;
+padding:50px 20px;
 text-align:center;
-border-top:1px solid var(--border);
+border-top:1px solid rgba(255,255,255,.08);
 }
 
-.whatsapp{
+.floating-whatsapp{
 position:fixed;
-bottom:20px;
 right:20px;
-width:60px;
-height:60px;
-background:#25D366;
+bottom:20px;
+width:65px;
+height:65px;
 border-radius:50%;
 display:flex;
-justify-content:center;
 align-items:center;
-font-size:2rem;
+justify-content:center;
+background:#25D366;
 color:white;
+font-size:2rem;
 text-decoration:none;
 z-index:999;
 }
 
-.top{
+.top-btn{
 position:fixed;
 left:20px;
 bottom:20px;
-width:55px;
-height:55px;
+width:60px;
+height:60px;
 border:none;
 border-radius:50%;
-font-size:1.3rem;
 cursor:pointer;
+font-size:1.2rem;
+background:white;
+color:black;
 }
 
-.eq{
-position:absolute;
-opacity:.08;
-font-size:2rem;
-animation:float 12s linear infinite;
-}
-
-@keyframes float{
-0%{transform:translateY(100vh)}
-100%{transform:translateY(-120vh)}
-}
-
-.reveal{
-opacity:0;
-transform:translateY(40px);
-transition:.8s;
-}
-
-.reveal.active{
-opacity:1;
-transform:none;
-}
-
-@media(max-width:768px){
-
-.hero h1{
-font-size:2.3rem;
-}
-
-.nav-links{
-display:none;
-}
-
-.section-title{
-font-size:2rem;
-}
-}
 </style>
-</head>
-<body>
-
-<div id="loader">AmirPhysicsAcademy</div>
-
-<div class="eq" style="left:10%">E = mc²</div>
-<div class="eq" style="left:30%;animation-delay:2s">F = ma</div>
-<div class="eq" style="left:60%;animation-delay:4s">V = IR</div>
-<div class="eq" style="left:80%;animation-delay:6s">PV = nRT</div>
-
-<nav class="navbar">
-<div class="logo">AmirPhysicsAcademy</div>
-
-<div class="nav-links">
-<a href="#about">About</a>
-<a href="#pricing">Pricing</a>
-<a href="#faq">FAQ</a>
-<a href="#contact">Contact</a>
-</div>
-
-<button class="toggle" id="themeBtn">
-<i class="fas fa-moon"></i>
-</button>
-</nav>
-
-<section class="hero">
-
-<div>
-
-<h1 id="typing"></h1>
-
-<p>
-Live Online Physics Doubt Solving Session for JEE, NEET,
-Boards and Foundation Students.
-</p>
-
-<div class="price">₹100 / 1 Hour</div>
-
-<a class="btn" href="[GOOGLE_FORM_LINK]" target="_blank">
-Book Session
-</a>
-
-<a class="btn" href="https://wa.me/[WHATSAPP_NUMBER]" target="_blank">
-WhatsApp
-</a>
-
-</div>
-
-</section>
-
-<section id="about" class="reveal">
-
-<h2 class="section-title">Why Students Choose Amir Sir</h2>
-
-<div class="cards">
-
-<div class="card">
-<i class="fas fa-atom"></i>
-<h3>Concept Clarity</h3>
-<p>Understand difficult Physics topics easily.</p>
-</div>
-
-<div class="card">
-<i class="fas fa-bolt"></i>
-<h3>Quick Doubt Solving</h3>
-<p>Get answers directly during live sessions.</p>
-</div>
-
-<div class="card">
-<i class="fas fa-graduation-cap"></i>
-<h3>Exam Focused</h3>
-<p>Perfect for JEE, NEET and Boards.</p>
-</div>
-
-<div class="card">
-<i class="fas fa-laptop"></i>
-<h3>Online Learning</h3>
-<p>Attend from anywhere.</p>
-</div>
-
-</div>
-
-</section>
-
-<section class="reveal">
-
-<h2 class="section-title">Session Statistics</h2>
-
-<div class="counter-grid">
-
-<div class="counter">
-<h2 class="count" data-target="500">0</h2>
-<p>Students Helped</p>
-</div>
-
-<div class="counter">
-<h2 class="count" data-target="100">0</h2>
-<p>Live Sessions</p>
-</div>
-
-<div class="counter">
-<h2 class="count" data-target="95">0</h2>
-<p>% Satisfaction</p>
-</div>
-
-</div>
-
-</section>
-
-<section id="pricing" class="reveal">
-
-<h2 class="section-title">Simple Pricing</h2>
-
-<div class="pricing">
-
-<h2>Physics Doubt Solving Session</h2>
-
-<div class="amount">₹100</div>
-
-<ul>
-<li>✔ 1 Hour Session</li>
-<li>✔ Live Interaction</li>
-<li>✔ Physics Doubts</li>
-<li>✔ JEE / NEET / Boards</li>
-<li>✔ Personal Guidance</li>
-</ul>
-
-<a class="btn" href="[GOOGLE_FORM_LINK]" target="_blank">
-Book Now
-</a>
-
-</div>
-
-</section>
-
-<section class="reveal">
-
-<h2 class="section-title">Student Feedback</h2>
-
-<div class="testimonial">
-"The concepts became much easier after the session."
-</div>
-
-<div class="testimonial">
-"Very helpful for JEE Physics preparation."
-</div>
-
-<div class="testimonial">
-"All my doubts were cleared within one hour."
-</div>
-
-</section>
-
-<section id="faq" class="reveal">
-
-<h2 class="section-title">Frequently Asked Questions</h2>
-
-<div class="faq-item">
-<div class="faq-question">How much does a session cost?</div>
-<div class="faq-answer">
-<p>Each session costs ₹100.</p>
-</div>
-</div>
-
-<div class="faq-item">
-<div class="faq-question">How long is the session?</div>
-<div class="faq-answer">
-<p>1 Hour.</p>
-</div>
-</div>
-
-<div class="faq-item">
-<div class="faq-question">How will I receive the meeting link?</div>
-<div class="faq-answer">
-<p>After payment confirmation.</p>
-</div>
-</div>
-
-</section>
-
-<section id="contact" class="contact reveal">
-
-<h2 class="section-title">Contact</h2>
-
-<p><i class="fas fa-phone"></i> [PHONE_NUMBER]</p>
-<br>
-
-<p><i class="fas fa-envelope"></i> [EMAIL]</p>
-<br>
-
-<p><i class="fab fa-whatsapp"></i> [WHATSAPP_NUMBER]</p>
-
-<br><br>
-
-<a class="btn" href="[GOOGLE_FORM_LINK]" target="_blank">
-Book Consultation
-</a>
-
-</section>
-
-<footer>
-
-<p>© 2026 AmirPhysicsAcademy</p>
-
-</footer>
-
-<a class="whatsapp"
-href="https://wa.me/[WHATSAPP_NUMBER]"
-target="_blank">
-<i class="fab fa-whatsapp"></i>
-</a>
-
-<button class="top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-↑
-</button>
 
 <script>
 
 window.onload=()=>{
+
 setTimeout(()=>{
-document.getElementById("loader").style.display="none";
+
+const loader=document.getElementById("loader");
+
+if(loader){
+
+loader.style.opacity="0";
+
+setTimeout(()=>{
+loader.remove();
+},500);
+
+}
+
 },1200);
+
 };
 
-const text="Master Physics. Clear Doubts. Score Higher.";
-let i=0;
+const typingTexts=[
+"Master Physics.",
+"Clear Doubts.",
+"Score Higher.",
+"Learn With Confidence."
+];
 
-function type(){
-if(i<text.length){
-document.getElementById("typing").innerHTML+=text.charAt(i);
-i++;
-setTimeout(type,50);
+let currentText=0;
+let currentChar=0;
+
+const typingElement=document.getElementById("typing");
+
+function typingEffect(){
+
+if(!typingElement) return;
+
+typingElement.textContent=
+typingTexts[currentText]
+.substring(0,currentChar);
+
+currentChar++;
+
+if(currentChar>
+typingTexts[currentText].length){
+
+currentText++;
+
+currentChar=0;
+
+if(currentText>=typingTexts.length){
+currentText=0;
 }
+
+setTimeout(typingEffect,1200);
+
+}else{
+
+setTimeout(typingEffect,80);
+
 }
-type();
 
-document.getElementById("themeBtn").onclick=()=>{
-document.body.classList.toggle("dark");
-};
-
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.add("active");
 }
-});
-});
 
-document.querySelectorAll(".reveal").forEach(el=>{
-observer.observe(el);
-});
+typingEffect();
 
-document.querySelectorAll(".count").forEach(counter=>{
+document.querySelectorAll(".counter")
+.forEach(counter=>{
+
+const target=
++counter.dataset.target;
+
+let count=0;
 
 const update=()=>{
 
-const target=+counter.dataset.target;
-const count=+counter.innerText;
-
-const inc=target/80;
+count+=Math.ceil(target/80);
 
 if(count<target){
 
-counter.innerText=Math.ceil(count+inc);
+counter.innerText=count;
 
-setTimeout(update,20);
+requestAnimationFrame(update);
 
 }else{
 
@@ -600,11 +1415,14 @@ update();
 
 });
 
-document.querySelectorAll(".faq-question").forEach(item=>{
+document
+.querySelectorAll(".faq-question")
+.forEach(item=>{
 
 item.addEventListener("click",()=>{
 
-const answer=item.nextElementSibling;
+const answer=
+item.nextElementSibling;
 
 if(answer.style.maxHeight){
 
@@ -612,7 +1430,8 @@ answer.style.maxHeight=null;
 
 }else{
 
-answer.style.maxHeight=answer.scrollHeight+"px";
+answer.style.maxHeight=
+answer.scrollHeight+"px";
 
 }
 
@@ -621,6 +1440,6 @@ answer.style.maxHeight=answer.scrollHeight+"px";
 });
 
 </script>
-    <script src="script.js"></script>
+
 </body>
 </html>
